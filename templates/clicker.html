@@ -45,28 +45,28 @@
             <div class="card" style="margin-top: 2rem;">
                 <div class="card-header">Уже доставлено</div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Доставлено лично Дедом Морозом: <\количество> </li>
-                    <li class="list-group-item">Доставлено эльфами-курьерами: <\количество> </li>
-                    <li class="list-group-item">Доставлено "Почтой России": <\количество> </li>
+                    <li class="list-group-item">Доставлено лично Дедом Морозом: <span id="santa_count">количество</span> </li>
+                    <li class="list-group-item">Доставлено эльфами-курьерами: <span id="elves_count">количество</span> </li>
+                    <li class="list-group-item">Доставлено "Почтой России": <span id="mail_count">количество</span> </li>
                 </ul>
             </div>
 
             <div class="container">
                 <div class="row" style="margin-top: 2rem; position: relative; left: 4rem">
                     <div class="col-4">
-                        <button type="button" class="btn btn-light btn-lg">Доставит дед Мороз</button>
+                        <button id="plus_santa" type="button" class="btn btn-light btn-lg" onclick="santa_func();">Доставит дед Мороз</button>
                     </div>
                     <div class="col-4">
-                        <button type="button" class="btn btn-light btn-lg">Доставит эльф</button>
+                        <button id="plus_elves" type="button" class="btn btn-light btn-lg" onclick="elves_func();">Доставит эльф</button>
                     </div>
                     <div class="col-4">
-                        <button type="button" class="btn btn-light btn-lg">Доставит "Почта России"</button>
+                        <button id="plus_mail" type="button" class="btn btn-light btn-lg" onclick="mail_func();">Доставит "Почта России"</button>
                     </div>
                 </div>
 
                 <div class="row" style="margin-top: 2rem;">
                     <div class="col">
-                        <button type="button" class="btn btn-primary btn-lg btn-block">Доставка всеми тремя способами</button>
+                        <button id="plus_all" type="button" class="btn btn-primary btn-lg btn-block" onclick="all_func();">Доставка всеми тремя способами</button>
                     </div>
               </div>
             </div>
@@ -85,5 +85,44 @@
             <span class="text-muted">&copy; MSHP 2020</span>
         </div>
     </footer>
+
+
+    <script>
+        let a = 0;
+        let b = 0;
+        let c = 0;
+        load_scores();
+        function load_scores() {
+            let s1 = document.getElementById("santa_count");
+            let s2 = document.getElementById("elves_count");
+            let s3 = document.getElementById("mail_count");
+            s1.innerHTML = a;
+            s2.innerHTML = b;
+            s3.innerHTML = c;
+        }
+
+        function santa_func() {
+            a++;
+            load_scores();
+        }
+
+        function elves_func() {
+            b++;
+            load_scores();
+        }
+
+        function mail_func() {
+            <!-- Да, я смог прочитать ту самую надпись -->
+            alert("Мужчина, вы что не видите? У нас перерыв!!!");
+            load_scores();
+        }
+
+        function all_func() {
+            a++;
+            b++;
+            c++;
+            load_scores();
+        }
+    </script>
 </body>
 </html>
