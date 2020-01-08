@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Clicker</title>
+    <title>{{ pagename }}</title>
     <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.4/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
     <style>
@@ -45,9 +45,9 @@
             <div class="card" style="margin-top: 2rem;">
                 <div class="card-header">Уже доставлено</div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Доставлено лично Дедом Морозом: <span id="santa_count">количество</span> </li>
-                    <li class="list-group-item">Доставлено эльфами-курьерами: <span id="elves_count">количество</span> </li>
-                    <li class="list-group-item">Доставлено "Почтой России": <span id="mail_count">количество</span> </li>
+                    <li class="list-group-item">Доставлено лично Дедом Морозом: <span id="santa_count">{{ santa_score }}</span> </li>
+                    <li class="list-group-item">Доставлено эльфами-курьерами: <span id="elves_count">{{ elves_score }}</span> </li>
+                    <li class="list-group-item">Доставлено "Почтой России": <span id="mail_count">{{ mail_score }}</span> </li>
                 </ul>
             </div>
 
@@ -72,9 +72,13 @@
             </div>
 
             <div class="container" style="margin-top: 4rem">
-                <div>
-                    <button type="button" class="btn btn-success btn-lg btn-block">Сохранить значения на сервер</button>
-                </div>
+                <form action="/clicker/" method="POST">
+                    {% csrf_token %}
+                    {% for item in form %}
+                            {{ item.as_hidden }}
+                    {% endfor %}
+                    <input type="submit" class="btn btn-success btn-lg btn-block" value="Сохранить значения на сервер">
+                </form>
             </div>
 
         </div>
@@ -86,43 +90,7 @@
         </div>
     </footer>
 
-
-    <script>
-        let a = 0;
-        let b = 0;
-        let c = 0;
-        load_scores();
-        function load_scores() {
-            let s1 = document.getElementById("santa_count");
-            let s2 = document.getElementById("elves_count");
-            let s3 = document.getElementById("mail_count");
-            s1.innerHTML = a;
-            s2.innerHTML = b;
-            s3.innerHTML = c;
-        }
-
-        function santa_func() {
-            a++;
-            load_scores();
-        }
-
-        function elves_func() {
-            b++;
-            load_scores();
-        }
-
-        function mail_func() {
-            <!-- Да, я смог прочитать ту самую надпись -->
-            alert("Мужчина, вы что не видите? У нас перерыв!!!");
-            load_scores();
-        }
-
-        function all_func() {
-            a++;
-            b++;
-            c++;
-            load_scores();
-        }
-    </script>
+    {% load static %}
+    <script src="{% static 'main.js' %}"></script>
 </body>
 </html>

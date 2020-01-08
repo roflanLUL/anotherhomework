@@ -2,7 +2,7 @@ from django.db import models
 
 
 class ClickerHistory(models.Model):
-    santa = models.IntegerField()
-    elves = models.IntegerField()
-    russian_mail = models.IntegerField()
+    santa_score = models.IntegerField()
+    elves_score = models.IntegerField()
+    mail_score = models.IntegerField()
     date = models.DateTimeField()
