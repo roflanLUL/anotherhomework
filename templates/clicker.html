@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="h-100">
 <head>
-    <meta charset="UTF-8">
-    <title>New Year Clicker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Clicker</title>
     <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://getbootstrap.com/docs/4.4/examples/starter-template/starter-template.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/4.4/examples/sticky-footer/sticky-footer.css" rel="stylesheet">
-
+    <link href="https://getbootstrap.com/docs/4.4/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
     <style>
-    .blockquote-footer {
-        margin-left: 50%;
-        margin-bottom: 10px;
-        font-size: 20px;
+    body {
+        background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('https://img4.goodfon.ru/original/3500x2500/9/83/rozhdestvo-xmas-decoration-fir-tree-wood-merry-christmas-n-1.jpg');
     }
-
-    .navbar-brand {
-        margin-left: 44%;
-        font-weight: bold;
+    .navbar-brand{
+        margin-left: 45.5%;
     }
 
     .bd-placeholder-img {
@@ -26,7 +21,7 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-      }
+    }
 
     @media (min-width: 768px) {
         .bd-placeholder-img-lg {
@@ -35,33 +30,60 @@
     }
     </style>
 </head>
-<body>
+
+<body class="d-flex flex-column h-100">
     <header>
-        <div class="navbar navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand " href="/clicker">New Year Clicker</a>
-        </div>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark font-weight-bold">
+        <a class="navbar-brand" href="/clicker">New Year Clicker</a>
+      </nav>
     </header>
 
-    <main role="main" class="container">
-        <div class="row mt-3">
-            <div class="col">
-                <h1>Wellcome!</h1>
-                <hr>
-                <p>Это маленький и очень простой сайт</p>
-                <ul>
-                    <li>Автор: Andrew</li>
-                    <li>Количество страниц: 4</li>
+    <main role="main" class="flex-shrink-0">
+
+        <div class="container">
+
+            <div class="card" style="margin-top: 2rem;">
+                <div class="card-header">Уже доставлено</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Доставлено лично Дедом Морозом: <\количество> </li>
+                    <li class="list-group-item">Доставлено эльфами-курьерами: <\количество> </li>
+                    <li class="list-group-item">Доставлено "Почтой России": <\количество> </li>
                 </ul>
             </div>
+
+            <div class="container">
+                <div class="row" style="margin-top: 2rem; position: relative; left: 4rem">
+                    <div class="col-4">
+                        <button type="button" class="btn btn-light btn-lg">Доставит дед Мороз</button>
+                    </div>
+                    <div class="col-4">
+                        <button type="button" class="btn btn-light btn-lg">Доставит эльф</button>
+                    </div>
+                    <div class="col-4">
+                        <button type="button" class="btn btn-light btn-lg">Доставит "Почта России"</button>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 2rem;">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Доставка всеми тремя способами</button>
+                    </div>
+              </div>
+            </div>
+
+            <div class="container" style="margin-top: 4rem">
+                <div>
+                    <button type="button" class="btn btn-success btn-lg btn-block">Сохранить значения на сервер</button>
+                </div>
+            </div>
+
         </div>
     </main>
 
-
-    <footer class="blockquote-footer fixed-bottom">
-        <div class="container text-right">
+    <footer class="footer mt-auto py-3 text-right">
+        <div class="container">
             <span class="text-muted">&copy; MSHP 2020</span>
         </div>
     </footer>
-
 </body>
 </html>
