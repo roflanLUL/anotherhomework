@@ -13,9 +13,7 @@ def index(request):
 
 
 def clicker(request):
-    # Задаем контекст
     context = {'pagename': 'New Year Clicker'}
-    # Загружаем данные из бд
     data = ClickerHistory.objects.all().last()
     if data is None:
         santa_score = 0
@@ -44,4 +42,4 @@ def clicker(request):
     else:
         context['form'] = ClickerForm()
 
-    return render(request, 'clicker.html', context)
+    return render(request, 'pages/clicker/clicker.html', context)

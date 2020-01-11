@@ -1,0 +1,14 @@
+{% extends 'card.html' %}
+
+
+{% block card_header %}
+    Уже доставлено
+{% endblock %}
+
+{% block card_body %}
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Доставлено лично Дедом Морозом: <span id="santa_count">{{ santa_score }}</span> </li>
+        <li class="list-group-item">Доставлено эльфами-курьерами: <span id="elves_count">{{ elves_score }}</span> </li>
+        <li class="list-group-item">Доставлено "Почтой России": <span id="mail_count">{{ mail_score }}</span> </li>
+    </ul>
+{% endblock %}
